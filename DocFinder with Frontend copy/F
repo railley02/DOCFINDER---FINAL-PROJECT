@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DocFinder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+      }
+
+      #map {
+        height: 500px;
+        width: 100%;
+      }
+
+      .controls {
+        padding: 1rem;
+      }
+
+      .medical-need-button {
+        margin: 0.25rem;
+        padding: 0.5rem 1rem;
+        background-color: #000000;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .medical-need-button:hover {
+        background-color: #0056b3;
+      }
+
+      #hospitalList {
+        list-style: none;
+        padding: 1rem;
+      }
+
+      #hospitalList li {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center; padding: 1rem">DocFinder</h1>
+
+    <div id="map"></div>
+
+    <div class="controls">
+      <p>Select a Medical Need:</p>
+      <button class="medical-need-button" data-need="cardiology">
+        Cardiology
+      </button>
+      <button class="medical-need-button" data-need="pediatrics">
+        Pediatrics
+      </button>
+      <button class="medical-need-button" data-need="emergency">
+        Emergency
+      </button>
+      <button class="medical-need-button" data-need="maternity">
+        Maternity
+      </button>
+      <button class="medical-need-button" data-need="">Show All</button>
+    </div>
+
+    <ul id="hospitalList"></ul>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Inline JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const quezonCityCoords = [14.676, 121.0437];
+        const map = L.map("map").setView(quezonCityCoords, 13);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }).addTo(map);
+
+        let allHospitals = [];
+        const hospitalListElement = document.getElementById("hospitalList");
+
+        async function fetchHospitalData() {
+          try {
+            const response = await fetch("./data.json");
+            if (!response.ok)
+              throw new Error(`HTTP error! status: ${response.status}`);
+            allHospitals = await response.json();
+            displayHospitals(allHospitals);
+          } catch (error) {
+            console.error("Could not fetch hospital data:", error);
+            hospitalListElement.innerHTML =
+              "<li>Error loading hospital data. Please try again later.</li>";
+          }
+        }
+
+        function displayHospitals(hospitalsToDisplay) {
+          hospitalListElement.innerHTML = "";
+          map.eachLayer((layer) => {
+            if (layer instanceof L.Marker) map.removeLayer(layer);
+          });
+
+          if (hospitalsToDisplay.length === 0) {
+            hospitalListElement.innerHTML =
+              "<li>No facilities found matching your criteria.</li>";
+            return;
+          }
+
+          hospitalsToDisplay.forEach((hospital) => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `
+                        <strong>${hospital.name}</strong><br>
+                        Address: ${hospital.address}<br>
+                        Services: ${hospital.services.join(", ")}<br>
+                        Contact: ${hospital.contact} | Hours: ${hospital.hours}
+                    `;
+            hospitalListElement.appendChild(listItem);
+
+            if (hospital.latitude && hospital.longitude) {
+              const marker = L.marker([
+                hospital.latitude,
+                hospital.longitude,
+              ]).addTo(map);
+              marker.bindPopup(
+                `<b>${hospital.name}</b><br>${
+                  hospital.address
+                }<br>Services: ${hospital.services.join(", ")}`
+              );
+            }
+          });
+        }
+
+        document.querySelectorAll(".medical-need-button").forEach((button) => {
+          button.addEventListener("click", function () {
+            const selectedNeed = button
+              .getAttribute("data-need")
+              .trim()
+              .toLowerCase();
+            const filteredHospitals = selectedNeed
+              ? allHospitals.filter((hospital) =>
+                  hospital.services.some(
+                    (service) => service.toLowerCase() === selectedNeed
+                  )
+                )
+              : allHospitals;
+
+            displayHospitals(filteredHospitals);
+          });
+        });
+
+        fetchHospitalData();
+      });
+    </script>
+  </body>
+</html>
