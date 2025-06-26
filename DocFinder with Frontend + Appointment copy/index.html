@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Medical Emergency Finder</title>
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Your Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+   <div class="container">
+       <header class="app-header">
+            <h1>DocFinder</h1>
+            <p class="subtitle">Find Help Fast</p>
+        </header>
+
+       <section class="map-section">
+            <div id="map"></div>
+            <div class="map-overlay">
+                <span>📍 Your Location</span>
+                <button id="centerLocationBtn">Re-center</button>
+            </div>
+        </section>
+
+
+       <div>
+           <h2>Select Medical Need:</h2>
+           <div id="medicalNeeds">
+               <button class="medical-need-button" data-need="anti-rabies">💉 Anti-Rabies</button>
+                <button class="medical-need-button" data-need="dental">🦷 Dental</button>
+                <button class="medical-need-button" data-need="burns">🔥 Burn Care</button>
+                <button class="medical-need-button" data-need="general-checkup">👨‍⚕️ Checkup</button>
+                <button class="medical-need-button" data-need="diagnostics">🔬 Diagnostics</button>
+                <button class="medical-need-button" data-need="urgent-care">🏥 Urgent Care</button>
+                <button class="medical-need-button" data-need="pediatrics">👶 Pediatrics</button>
+           </div>
+       </div>
+
+       <h2>Nearby Facilities:</h2>
+       <ul id="hospitalList" class="hospital-list">
+           <li>No facilities found yet.</li>
+       </ul>
+   </div>
+
+    <!-- Appointment Modal -->
+    <div id="appointmentModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h3>Set Appointment with <span id="modalHospitalName"></span></h3>
+            
+            <form id="appointmentForm">
+            <label for="fullName">Your Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="date">Preferred Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Preferred Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="submit">Confirm Appointment</button>
+            </form>
+        </div>
+    </div>
+
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+
+   <script src="script.js"></script>
+
+
+
+</body>
+</html>
+
