@@ -1,0 +1,143 @@
+[
+   {
+       "id": 1,
+       "name": "QC General Hospital",
+       "address": "M269+F78, Seminary Rd, Project 8, Quezon City, Metro Manila",
+       "latitude": 14.661593723710732,
+       "longitude": 121.01827391902857,
+       "services": ["anti-rabies", "burns"],
+       "contact": "02-8123-4567",
+       "hours": "24/7"
+   },
+   {
+       "id": 2,
+       "name": "Smile Bright Dental Clinic",
+       "address": "834 Aurora Blvd, cor Driod, Cubao, Quezon City, 1111 Metro Manila",
+       "latitude": 14.62117252868023,
+       "longitude": 121.04845377948932,
+       "services": ["dental"],
+       "contact": "02-8765-4321",
+       "hours": "9 AM - 6 PM, Mon-Sat"
+   },
+   {
+       "id": 3,
+       "name": "Community Health Hub - Project 4",
+       "address": "789 P. Tuazon Blvd, Project 4, Quezon City",
+       "latitude": 14.6200,
+       "longitude": 121.0590,
+       "services": ["anti-rabies", "general-checkup"],
+       "contact": "02-8888-7777",
+       "hours": "8 AM - 5 PM, Mon-Fri"
+   },
+   {
+       "id": 4,
+       "name": "St. Luke's Medical Center Quezon City (Mock Entry)",
+       "address": "279 E Rodriguez Sr. Ave, Quezon City, 1112 Metro Manila",
+       "latitude": 14.622750793663252,
+       "longitude": 121.02330956945171,
+       "services": ["dental", "burns", "anti-rabies"],
+       "contact": "02-8723-0101",
+       "hours": "24/7"
+   },
+   {
+       "id": 5,
+       "name": "East Avenue Medical Center",
+       "address": "East Ave, Diliman, Quezon City, 1100 Metro Manila",
+       "latitude": 14.64238193494562,
+       "longitude": 121.04798369643599,
+       "services": ["anti-rabies", "burns", "urgent-care", "general-checkup"],
+       "contact": "02-8925-6501",
+       "hours": "24/7"
+   },
+   {
+       "id": 6,
+       "name": "Philippine Heart Center",
+       "address": "East Ave, Diliman, Quezon City",
+       "latitude": 14.644283193496648,
+       "longitude": 121.04813039643582,
+       "services": ["diagnostics", "general-checkup", "urgent-care"],
+       "contact": "02-8925-2401",
+       "hours": "24/7"
+   },
+   {
+       "id": 7,
+       "name": "MedHealth Diagnostics Services",
+       "address": "Victoria One Building, 1670 Quezon Ave, Quezon City, 1103 Metro Manila",
+       "latitude": 14.643462605862721,
+       "longitude": 121.03604454077832,
+       "services": ["diagnostics", "general-checkup"],
+       "contact": "02-8888-8888",
+       "hours": "8 AM - 6 PM, Mon-Sat"
+   },
+   {
+       "id": 8,
+       "name": "Healthway Family Clinic",
+       "address": "Trinoma Mall, North Ave, Quezon City",
+       "latitude": 14.65583801268929,
+       "longitude": 121.0316307239748,
+       "services": ["general-checkup", "pediatrics", "dental"],
+       "contact": "02-7890-1234",
+       "hours": "10 AM - 8 PM, Mon-Sun"
+   },
+   {
+       "id": 9,
+       "name": "Hi-Precision Diagnostics Quezon City",
+       "address": "722 N.S. Amoranto Sr. St, Quezon City, Metro Manila",
+       "latitude": 14.634849202900451,
+       "longitude": 121.00483082116658,
+       "services": ["diagnostics", "general-checkup"],
+       "contact": "02-8741-7777",
+       "hours": "6 AM - 6 PM, Mon-Sat"
+   },
+   {
+       "id": 10,
+       "name": "Capitol Medical Center",
+       "address": "Dr. Garcia Sr. St, Quezon City",
+       "latitude": 14.6262,
+       "longitude": 121.0266,
+       "services": ["anti-rabies", "burns", "urgent-care", "general-checkup"],
+       "contact": "02-8372-3825",
+       "hours": "24/7"
+   },
+   {
+       "id": 11,
+       "name": "New Era General Hospital",
+       "address": "Tandang Sora Ave, Quezon City",
+       "latitude": 14.6872,
+       "longitude": 121.0567,
+       "services": ["anti-rabies", "general-checkup", "pediatrics"],
+       "contact": "02-8911-3222",
+       "hours": "24/7"
+   },
+   {
+       "id": 12,
+       "name": "UERM Memorial Hospital",
+       "address": "Aurora Blvd, Quezon City",
+       "latitude": 14.6061,
+       "longitude": 121.0352,
+       "services": ["burns", "urgent-care", "general-checkup"],
+       "contact": "02-8715-0861",
+       "hours": "24/7"
+   },
+   {
+       "id": 13,
+       "name": "MyHealth Clinic - Eton Centris",
+       "address": "Eton Centris, EDSA cor. Quezon Ave, Quezon City",
+       "latitude": 14.6387,
+       "longitude": 121.0372,
+       "services": ["general-checkup", "dental", "diagnostics"],
+       "contact": "02-8396-9899",
+       "hours": "8 AM - 8 PM, Mon-Sun"
+   },
+   {
+       "id": 14,
+       "name": "The Medical City Clinic - SM North",
+       "address": "SM North EDSA, Quezon City",
+       "latitude": 14.6556,
+       "longitude": 121.0367,
+       "services": ["general-checkup", "diagnostics", "pediatrics"],
+       "contact": "02-8396-9898",
+       "hours": "10 AM - 8 PM, Mon-Sun"
+   }
+]
+
